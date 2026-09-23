@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculadora de meta de ahorro — Cuentas Claras</title>
+<meta name="description" content="Calculá gratis cuánto ahorrar por mes para llegar a un objetivo, con o sin interés sobre lo ahorrado.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html">Cuentas <em>Claras</em></a>
+  <nav class="top-nav" aria-label="Calculadoras">
+    <a href="calculadora-prestamo.html">Préstamo</a>
+    <a href="calculadora-sueldo-neto.html">Sueldo neto</a>
+    <a href="calculadora-meta-ahorro.html" class="active">Meta de ahorro</a>
+    <a href="calculadora-ajuste-inflacion.html">Ajuste por inflación</a>
+  </nav>
+</header>
+
+<div class="ad-leaderboard">
+  <div class="ad-slot" role="complementary" aria-label="Espacio publicitario">
+    <span class="ad-label">Espacio publicitario</span>
+    <span class="ad-size">728 × 90</span>
+  </div>
+</div>
+
+<main>
+  <div class="calc-column">
+    <section class="calc-panel">
+      <h1 class="calc-title">Meta de ahorro</h1>
+      <p class="calc-desc">Calculá cuánto tenés que ahorrar por mes para llegar a un objetivo, con o sin interés sobre lo ahorrado.</p>
+
+      <div class="field-grid">
+        <div class="field">
+          <label for="a-objetivo">Monto objetivo</label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input type="number" id="a-objetivo" inputmode="decimal" placeholder="2.000.000" min="0" step="any">
+          </div>
+        </div>
+        <div class="field">
+          <label for="a-actual">Ya tenés ahorrado</label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input type="number" id="a-actual" inputmode="decimal" placeholder="0" min="0" step="any">
+          </div>
+        </div>
+        <div class="field">
+          <label for="a-plazo">Plazo</label>
+          <div class="input-wrap">
+            <input type="number" id="a-plazo" inputmode="numeric" placeholder="12" min="1" step="1">
+            <span class="suffix">meses</span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="a-tasa">Rendimiento mensual (opcional)</label>
+          <div class="input-wrap">
+            <input type="number" id="a-tasa" inputmode="decimal" placeholder="0" min="0" step="any">
+            <span class="suffix">%</span>
+          </div>
+          <span class="hint">Si guardás la plata en un plazo fijo, fondo o cuenta remunerada, poné la tasa mensual.</span>
+        </div>
+      </div>
+
+      <p class="error-msg" id="a-error">Completá objetivo y plazo con valores válidos (el objetivo debe ser mayor al ahorro actual).</p>
+
+      <div class="calc-actions">
+        <button class="btn-primary" onclick="calcularAhorro()">Calcular cuota de ahorro</button>
+      </div>
+
+      <div class="result-box" id="a-result">
+        <div class="result-lead">Necesitás ahorrar por mes</div>
+        <div class="result-figure figure" id="a-cuota">$0</div>
+        <div class="result-lines">
+          <div class="result-line"><span>Total aportado por vos</span><span class="figure" id="a-aportado">$0</span></div>
+          <div class="result-line"><span>Generado por intereses</span><span class="figure" id="a-generado">$0</span></div>
+        </div>
+        <p class="result-note">Cálculo con capitalización mensual sobre el rendimiento indicado. Si no cargás una tasa, se asume ahorro simple sin interés.</p>
+      </div>
+
+      <div class="info-block">
+        <h2>Cómo armar un plan de ahorro realista</h2>
+        <p>Definir la meta y el plazo es la parte fácil; lo que cambia el resultado es dónde guardás la plata mientras ahorrás. Si la dejás en una cuenta remunerada, plazo fijo o fondo que rinda por encima de la inflación, necesitás aportar menos de tu bolsillo cada mes porque el interés hace parte del trabajo.</p>
+        <div class="related-links">
+          <a href="calculadora-ajuste-inflacion.html">Ver cuánto vale hoy tu meta en el futuro →</a>
+          <a href="calculadora-sueldo-neto.html">Calculadora de sueldo neto →</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad-native">
+      <div class="ad-slot" role="complementary" aria-label="Espacio publicitario">
+        <span class="ad-label">Espacio publicitario</span>
+        <span class="ad-size">native · 320 × 120</span>
+      </div>
+    </div>
+  </div>
+
+  <aside class="ad-sidebar">
+    <div class="ad-slot tall" role="complementary" aria-label="Espacio publicitario">
+      <span class="ad-label">Espacio publicitario</span>
+      <span class="ad-size">300 × 400</span>
+    </div>
+    <div class="tip-card">
+      <strong>Sobre este cálculo</strong>
+      Es una estimación para planificar. El rendimiento real de tus ahorros depende del instrumento que elijas y puede variar mes a mes.
+    </div>
+  </aside>
+</main>
+
+<footer>
+  <div class="ad-slot" role="complementary" aria-label="Espacio publicitario">
+    <span class="ad-label">Espacio publicitario</span>
+    <span class="ad-size">728 × 90</span>
+  </div>
+  Cuentas Claras — calculadoras de referencia, no reemplazan asesoramiento financiero, contable o impositivo profesional. · <a href="politica-privacidad.html">Política de Privacidad</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculadora de ajuste por inflación — Cuentas Claras</title>
+<meta name="description" content="Convertí gratis un monto de una fecha a valores de otra fecha, según la inflación acumulada en ese período.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html">Cuentas <em>Claras</em></a>
+  <nav class="top-nav" aria-label="Calculadoras">
+    <a href="calculadora-prestamo.html">Préstamo</a>
+    <a href="calculadora-sueldo-neto.html">Sueldo neto</a>
+    <a href="calculadora-meta-ahorro.html">Meta de ahorro</a>
+    <a href="calculadora-ajuste-inflacion.html" class="active">Ajuste por inflación</a>
+  </nav>
+</header>
+
+<div class="ad-leaderboard">
+  <div class="ad-slot" role="complementary" aria-label="Espacio publicitario">
+    <span class="ad-label">Espacio publicitario</span>
+    <span class="ad-size">728 × 90</span>
+  </div>
+</div>
+
+<main>
+  <div class="calc-column">
+    <section class="calc-panel">
+      <h1 class="calc-title">Ajuste por inflación</h1>
+      <p class="calc-desc">Convertí un monto de una fecha a valores de otra fecha, según la inflación acumulada en ese período.</p>
+
+      <div class="field-grid">
+        <div class="field">
+          <label for="i-monto">Monto original</label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input type="number" id="i-monto" inputmode="decimal" placeholder="100.000" min="0" step="any">
+          </div>
+        </div>
+        <div class="field">
+          <label for="i-inflacion">Inflación acumulada del período</label>
+          <div class="input-wrap">
+            <input type="number" id="i-inflacion" inputmode="decimal" placeholder="45" step="any">
+            <span class="suffix">%</span>
+          </div>
+          <span class="hint">Buscá el índice acumulado (IPC) entre las dos fechas en la web del INDEC u otra fuente oficial.</span>
+        </div>
+      </div>
+
+      <p class="error-msg" id="i-error">Ingresá un monto mayor a cero y un porcentaje de inflación.</p>
+
+      <div class="calc-actions">
+        <button class="btn-primary" onclick="calcularInflacion()">Calcular monto ajustado</button>
+      </div>
+
+      <div class="result-box" id="i-result">
+        <div class="result-lead">Monto ajustado</div>
+        <div class="result-figure figure" id="i-ajustado">$0</div>
+        <div class="result-lines">
+          <div class="result-line"><span>Diferencia</span><span class="figure" id="i-diferencia">$0</span></div>
+        </div>
+        <p class="result-note">El resultado indica cuánto necesitarías hoy para tener el mismo poder de compra que el monto original tenía al inicio del período, según la inflación que cargaste.</p>
+      </div>
+
+      <div class="info-block">
+        <h2>¿Dónde busco el índice de inflación acumulada?</h2>
+        <p>El INDEC publica todos los meses el IPC (Índice de Precios al Consumidor) con la variación mensual y la acumulada. Para ajustar un monto entre dos fechas, necesitás el porcentaje acumulado entre esos dos meses puntuales, no el dato de un solo mes.</p>
+        <div class="related-links">
+          <a href="calculadora-meta-ahorro.html">Calculadora de meta de ahorro →</a>
+          <a href="calculadora-sueldo-neto.html">Calculadora de sueldo neto →</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad-native">
+      <div class="ad-slot" role="complementary" aria-label="Espacio publicitario">
+        <span class="ad-label">Espacio publicitario</span>
+        <span class="ad-size">native · 320 × 120</span>
+      </div>
+    </div>
+  </div>
+
+  <aside class="ad-sidebar">
+    <div class="ad-slot tall" role="complementary" aria-label="Espacio publicitario">
+      <span class="ad-label">Espacio publicitario</span>
+      <span class="ad-size">300 × 400</span>
+    </div>
+    <div class="tip-card">
+      <strong>Sobre este cálculo</strong>
+      El resultado depende enteramente del porcentaje de inflación que cargues — usá siempre una fuente oficial para ese dato.
+    </div>
+  </aside>
+</main>
+
+<footer>
+  <div class="ad-slot" role="complementary" aria-label="Espacio publicitario">
+    <span class="ad-label">Espacio publicitario</span>
+    <span class="ad-size">728 × 90</span>
+  </div>
+  Cuentas Claras — calculadoras de referencia, no reemplazan asesoramiento financiero, contable o impositivo profesional. · <a href="politica-privacidad.html">Política de Privacidad</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

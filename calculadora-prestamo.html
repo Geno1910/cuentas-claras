@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculadora de cuota de préstamo — Cuentas Claras</title>
+<meta name="description" content="Calculá gratis la cuota mensual de un préstamo o crédito personal según monto, tasa nominal anual y plazo. Sistema francés, con intereses totales.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html">Cuentas <em>Claras</em></a>
+  <nav class="top-nav" aria-label="Calculadoras">
+    <a href="calculadora-prestamo.html" class="active">Préstamo</a>
+    <a href="calculadora-sueldo-neto.html">Sueldo neto</a>
+    <a href="calculadora-meta-ahorro.html">Meta de ahorro</a>
+    <a href="calculadora-ajuste-inflacion.html">Ajuste por inflación</a>
+  </nav>
+</header>
+
+<div class="ad-leaderboard">
+  <div class="ad-slot" role="complementary" aria-label="Espacio publicitario">
+    <span class="ad-label">Espacio publicitario</span>
+    <span class="ad-size">728 × 90</span>
+  </div>
+</div>
+
+<main>
+  <div class="calc-column">
+    <section class="calc-panel">
+      <h1 class="calc-title">Cuota de un préstamo</h1>
+      <p class="calc-desc">Calculá la cuota fija mensual de un préstamo con sistema francés (cuotas iguales, la más común en préstamos personales y créditos).</p>
+
+      <div class="field-grid">
+        <div class="field">
+          <label for="p-monto">Monto del préstamo</label>
+          <div class="input-wrap">
+            <span class="prefix">$</span>
+            <input type="number" id="p-monto" inputmode="decimal" placeholder="1.000.000" min="0" step="any">
+          </div>
+        </div>
+        <div class="field">
+          <label for="p-tasa">Tasa nominal anual (TNA)</label>
+          <div class="input-wrap">
+            <input type="number" id="p-tasa" inputmode="decimal" placeholder="60" min="0" step="any">
+            <span class="suffix">%</span>
+          </div>
+          <span class="hint">La TNA figura en el contrato del préstamo o en la simulación del banco.</span>
+        </div>
+        <div class="field">
+          <label for="p-plazo">Plazo</label>
+          <div class="input-wrap">
+            <input type="number" id="p-plazo" inputmode="numeric" placeholder="12" min="1" step="1">
+            <span class="suffix">meses</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="error-msg" id="p-error">Completá monto, tasa y plazo con valores válidos (mayores a cero).</p>
+
+      <div class="calc-actions">
+        <button class="btn-primary" onclick="calcularPrestamo()">Calcular cuota</button>
+      </div>
+
+      <div class="result-box" id="p-result">
+        <div class="result-lead">Cuota mensual estimada</div>
+        <div class="result-figure figure" id="p-cuota">$0</div>
+        <div class="result-lines">
+          <div class="result-line"><span>Total a pagar</span><span class="figure" id="p-total">$0</span></div>
+          <div class="result-line"><span>Intereses totales</span><span class="figure" id="p-intereses">$0</span></div>
+          <div class="result-line"><span>Tasa mensual equivalente</span><span class="figure" id="p-tasames">0%</span></div>
+        </div>
+        <p class="result-note">Cálculo con sistema francés (cuota fija). No incluye seguros, gastos administrativos ni IVA sobre intereses, que muchos préstamos suman aparte — revisá el CFT (costo financiero total) del banco para comparar ofertas.</p>
+      </div>
+
+      <div class="info-block">
+        <h2>¿Cómo se calcula la cuota de un préstamo?</h2>
+        <p>La mayoría de los préstamos personales en Argentina usan el sistema francés: la cuota es siempre el mismo monto durante todo el préstamo, aunque la proporción entre interés y capital que pagás cada mes va cambiando (al principio pagás más interés, al final más capital).</p>
+        <p>Para comparar ofertas de distintos bancos no alcanza con mirar la TNA (tasa nominal anual): fijate también en el CFT (costo financiero total), que incluye seguros y gastos, y suele ser más alto que la TNA.</p>
+        <div class="related-links">
+          <a href="calculadora-sueldo-neto.html">Ver si la cuota entra en tu sueldo →</a>
+          <a href="calculadora-meta-ahorro.html">Calculadora de meta de ahorro →</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="ad-native">
+      <div class="ad-slot" role="complementary" aria-label="Espacio publicitario">
+        <span class="ad-label">Espacio publicitario</span>
+        <span class="ad-size">native · 320 × 120</span>
+      </div>
+    </div>
+  </div>
+
+  <aside class="ad-sidebar">
+    <div class="ad-slot tall" role="complementary" aria-label="Espacio publicitario">
+      <span class="ad-label">Espacio publicitario</span>
+      <span class="ad-size">300 × 400</span>
+    </div>
+    <div class="tip-card">
+      <strong>Sobre este cálculo</strong>
+      Es una estimación para ayudarte a decidir más rápido. Para el número definitivo, confirmá siempre con la simulación oficial del banco o entidad financiera.
+    </div>
+  </aside>
+</main>
+
+<footer>
+  <div class="ad-slot" role="complementary" aria-label="Espacio publicitario">
+    <span class="ad-label">Espacio publicitario</span>
+    <span class="ad-size">728 × 90</span>
+  </div>
+  Cuentas Claras — calculadoras de referencia, no reemplazan asesoramiento financiero, contable o impositivo profesional. · <a href="politica-privacidad.html">Política de Privacidad</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
